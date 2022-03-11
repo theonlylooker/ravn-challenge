@@ -1,10 +1,4 @@
-import {
-  Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
+import { Drawer, List } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import React from "react";
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -15,8 +9,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import SettingsIcon from "@mui/icons-material/Settings";
 import FortIcon from "@mui/icons-material/Fort";
-import { useLocation, useNavigate } from "react-router-dom";
-
+import SideBarGlobalItem from "../SideBarGlobalItem/SideBarGlobalItem";
 const drawerWidth = 240;
 const useStyles = makeStyles({
   drawerpaper: {
@@ -25,14 +18,9 @@ const useStyles = makeStyles({
   drawer: {
     width: drawerWidth,
   },
-  active: {
-    background: "#ffffff",
-  },
 });
 const SideBar = () => {
   const classes = useStyles();
-  const navigate = useNavigate();
-  const location = useLocation();
   const menuItem = [
     { text: "DASHBOARD", icon: <DashboardIcon />, path: "/" },
     { text: "PROJECTS", icon: <ShopIcon />, path: "/projects" },
@@ -48,7 +36,7 @@ const SideBar = () => {
       <Drawer
         PaperProps={{
           style: { borderRadius: "20px 20px 20px 20px" },
-          sx: { backgroundColor: "#202223", color: "#6D7175" },
+          sx: { backgroundColor: "#2C2F33", color: "#94979A" },
         }}
         className={classes.drawer}
         variant="permanent"
@@ -59,17 +47,27 @@ const SideBar = () => {
           <FortIcon></FortIcon>
         </div>
 
-        <List>
+        <List
+          sx={{
+            "&& .Mui-selected, && .Mui-selected:hover": {
+              "&, & .MuiListItemIcon-root": {
+                color: "#DA584B",
+              },
+            },
+            "& .MuiListItemButton-root:hover": {
+              "&, & .MuiListItemIcon-root": {
+                color: "#DA584B",
+              },
+            },
+          }}
+        >
           {menuItem.map((item) => (
-            <ListItem
-              button
+            <SideBarGlobalItem
               key={item.text}
-              onClick={() => navigate(item.path)}
-              className={location.pathname == item.path ? classes.active : null}
-            >
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
-            </ListItem>
+              text={item.text}
+              path={item.path}
+              icon={item.icon}
+            />
           ))}
         </List>
       </Drawer>
