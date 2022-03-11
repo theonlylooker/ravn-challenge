@@ -1,12 +1,11 @@
 import React from "react";
-import Header from "../../components/Header/Header";
 import MainContent from "../../components/MainContent/MainContent";
+import NavBar from "../../components/NavBar/NavBar";
 
 const dashboard = () => {
   return (
     <div>
-      <h5>Dashboardasdasdasdasdasdsdadasdas</h5>
-      <Header></Header>
+      <NavBar></NavBar>
       <MainContent></MainContent>
     </div>
   );

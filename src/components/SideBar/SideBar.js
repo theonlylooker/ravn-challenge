@@ -50,6 +50,8 @@ const SideBar = () => {
         <List
           sx={{
             "&& .Mui-selected, && .Mui-selected:hover": {
+              background:
+                "linear-gradient(90deg, rgba(44,47,51,1) 95%, rgba(218,88,75,1) 100%, rgba(218,88,75,1) 100%, rgba(218,88,75,1) 100%)",
               "&, & .MuiListItemIcon-root": {
                 color: "#DA584B",
               },
