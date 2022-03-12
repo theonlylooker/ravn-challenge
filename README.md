@@ -1,8 +1,8 @@
 # RAVN Challenge
 
 The development of a dashboard was requested
-
-![](src/assets/dashboard.PNG)
+the project its incomplete 
+![](https://github.com/theonlylooker/ravn-challenge/blob/master/src/assets/images/dashboard.PNG)
 
 Requirements
 
