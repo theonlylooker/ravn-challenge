@@ -13,7 +13,8 @@ const MainContent = () => {
       <PlusButton></PlusButton>
       <GridButton></GridButton>
       <ListButton></ListButton>
-      <TaskColumn></TaskColumn>
+      asasdasdasdasdasdsadadasdasd
+      <TaskCard></TaskCard>
     </div>
   );
 };
