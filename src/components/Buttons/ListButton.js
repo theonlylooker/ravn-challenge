@@ -7,7 +7,6 @@ const ListButton = () => {
       <IconButton>
         <ViewListIcon sx={{ color: "white" }} />
       </IconButton>
-      ListButton
     </div>
   );
 };

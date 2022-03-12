@@ -7,7 +7,6 @@ const GridButton = () => {
       <IconButton>
         <GridViewIcon sx={{ color: "white" }} />
       </IconButton>
-      GridButton
     </div>
   );
 };

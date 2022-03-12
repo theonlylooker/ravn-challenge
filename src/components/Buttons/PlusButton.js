@@ -9,7 +9,6 @@ const PlusButton = () => {
           sx={{ color: "white", background: "#DA584B", borderRadius: 2 }}
         ></AddSharpIcon>
       </IconButton>
-      PlusButton
     </div>
   );
 };
