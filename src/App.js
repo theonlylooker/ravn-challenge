@@ -9,12 +9,14 @@ import Task from "./pages/Task/Task";
 import TimeManage from "./pages/TimeManage/TimeManage";
 import SideBar from "./components/SideBar/SideBar";
 import { makeStyles } from "@mui/styles";
+import { setContext } from "@apollo/client/link/context";
 import {
   ApolloProvider,
   gql,
   ApolloClient,
   useQuery,
   InMemoryCache,
+  createHttpLink,
 } from "@apollo/client";
 const useStyles = makeStyles({
   root: {
@@ -23,8 +25,21 @@ const useStyles = makeStyles({
 });
 function App() {
   const classes = useStyles();
-  const client = new ApolloClient({
+  const API_Token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwb3NpdGlvbklkIjoiOTNhNTk5YTFkMmQ4IiwicHJvamVjdElkIjoiNWRiYjVjYjgtYjI2ZS00ZTA5LThkZDctNDJjZjI4YTFjMjkyIiwiZnVsbE5hbWUiOiJFZHVhcmRvIFJvbGFuZG8gQmFzdXJjbyBDYXlsbGFodWEiLCJlbWFpbCI6ImViYXN1cmNvY0BnbWFpbC5jb20iLCJpYXQiOjE2NDY3NTU0Nzl9.RujsZ46Tymv_pickk1okimeSKf6SJOubkxhX1eYIb_0";
+  const httpLink = createHttpLink({
     uri: "https://syn-api-prod.herokuapp.com/graphql",
+  });
+  const authLink = setContext((_, { headers }) => {
+    return {
+      headers: {
+        ...headers,
+        authorization: `Bearer ${API_Token}`,
+      },
+    };
+  });
+  const client = new ApolloClient({
+    link: authLink.concat(httpLink),
     cache: new InMemoryCache(),
   });
   return (

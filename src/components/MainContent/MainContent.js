@@ -8,8 +8,12 @@ import TaskColumn from "../TaskColumn/TaskColumn";
 import { gql, useQuery } from "@apollo/client";
 const GetTasksQUERY = gql`
   query GetTasks() {
-    characters() {
-      id
+    tasks(input:FilterTaskInput) {
+      id,
+      name,
+      position,
+      status,
+      tags,
     }
   }
 `;
